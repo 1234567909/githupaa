@@ -1,9 +1,9 @@
 syntax = "proto3";
 
 package user;
-option go_package=".;user";
+//option go_package=".;user";
 
-//option go_package = "github.com/JobNing/message/user"; // Golang的报名
+option go_package = "github.com/1234567909/githupaa.git"; // Golang的报名
 
 service User {
   rpc GetUser   (GetUserRequest)    returns (GetUserResponse);
