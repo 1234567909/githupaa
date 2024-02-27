@@ -1,12 +1,12 @@
 package app
 
-import "user-mater/mysql"
+import "github.com/1234567909/githupaa/mysql"
 
 func Init(apps ...string) error {
 	var err error
 	for _, val := range apps {
 		switch val {
-		case "mysql":
+		case val:
 			err = mysql.InitMysql()
 		}
 	}
