@@ -8,11 +8,11 @@ import (
 	"net"
 )
 
-func RegisterGRPC(port int, register func(s *grpc.Server)) error {
+func RegisterGRPC(port int, register func(s *grpc.Server)) (*grpc.Server, error) {
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
-		return err
+		return nil, nil
 	}
 
 	s := grpc.NewServer()
@@ -22,7 +22,7 @@ func RegisterGRPC(port int, register func(s *grpc.Server)) error {
 	log.Printf("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
-		return err
+		return nil, nil
 	}
-	return err
+	return nil, nil
 }
