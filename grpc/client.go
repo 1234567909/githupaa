@@ -10,9 +10,11 @@ import (
 
 func Client(toService string) (*grpc.ClientConn, error) {
 	cnfStr, err := config.GetConfig("DEFAULT_GROUP", toService)
+
 	if err != nil {
 		return nil, err
 	}
+
 	cnf := new(Config)
 	err = yaml.Unmarshal([]byte(cnfStr), &cnf)
 	if err != nil {
